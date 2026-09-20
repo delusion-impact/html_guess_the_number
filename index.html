@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Угадай число</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Угадай число</h1>
+      <p class="range">Число между 1 и 20</p>
+      <button type="button" class="btn btn-again">Снова</button>
+      <div class="secret" aria-live="polite">?</div>
+    </header>
+    <main class="main">
+      <section class="panel panel-guess">
+        <p class="message">Начните угадывать...</p>
+        <label class="visually-hidden" for="guess">Ваше число</label>
+        <input
+          id="guess"
+          class="guess"
+          type="number"
+          min="1"
+          max="20"
+          inputmode="numeric"
+        />
+        <button type="button" class="btn btn-check">Проверка</button>
+      </section>
+      <section class="panel panel-stats">
+        <p>💯 Счёт: <span class="score">20</span></p>
+        <p>🥇 Рекорд: <span class="highscore">0</span></p>
+      </section>
+    </main>
+    <script src="js/game.js"></script>
+  </body>
+</html>
