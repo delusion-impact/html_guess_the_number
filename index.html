@@ -10,8 +10,6 @@
     <header class="header">
       <h1>Угадай число</h1>
       <p class="range">Число между 1 и 20</p>
-      <button type="button" class="btn btn-again">Снова</button>
-      <div class="secret" aria-live="polite">?</div>
     </header>
     <main class="main">
       <section class="panel panel-guess">
@@ -26,11 +24,13 @@
           inputmode="numeric"
         />
         <button type="button" class="btn btn-check">Проверка</button>
+        <div class="secret" aria-live="polite">?</div>
+        <button type="button" class="btn btn-again">Снова</button>
       </section>
-      <section class="panel panel-stats">
+      <aside class="panel panel-stats">
         <p>💯 Счёт: <span class="score">20</span></p>
         <p>🥇 Рекорд: <span class="highscore">0</span></p>
-      </section>
+      </aside>
     </main>
     <script src="js/game.js"></script>
   </body>
