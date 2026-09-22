@@ -7,10 +7,11 @@ const START_SCORE = 20;
 const messageEl = document.querySelector(".message");
 const scoreEl = document.querySelector(".score");
 const highscoreEl = document.querySelector(".highscore");
-const secretEl = document.querySelector(".secret");
 const guessInput = document.querySelector(".guess");
 const checkBtn = document.querySelector(".btn-check");
 const againBtn = document.querySelector(".btn-again");
+const upBtn = document.querySelector(".btn-up");
+const downBtn = document.querySelector(".btn-down");
 
 let secretNumber = randomNumber();
 let score = START_SCORE;
@@ -30,11 +31,18 @@ function setScore(value) {
   scoreEl.textContent = value;
 }
 
+function adjustGuess(delta) {
+  if (finished) return;
+  let value = Number(guessInput.value) || MIN;
+  value = Math.min(MAX, Math.max(MIN, value + delta));
+  guessInput.value = value;
+  guessInput.focus();
+}
+
 function resetRound() {
   finished = false;
   secretNumber = randomNumber();
   setScore(START_SCORE);
-  secretEl.textContent = "?";
   guessInput.value = "";
   guessInput.disabled = false;
   checkBtn.disabled = false;
@@ -51,7 +59,6 @@ function endGame(won) {
   document.body.classList.toggle("is-lost", !won);
 
   if (won) {
-    secretEl.textContent = String(secretNumber);
     displayMessage("Вы победили!");
     if (score > highScore) {
       highScore = score;
@@ -96,11 +103,12 @@ function checkGuess() {
 }
 
 checkBtn.addEventListener("click", checkGuess);
+againBtn.addEventListener("click", resetRound);
+upBtn.addEventListener("click", () => adjustGuess(1));
+downBtn.addEventListener("click", () => adjustGuess(-1));
 
 guessInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     checkGuess();
   }
 });
-
-againBtn.addEventListener("click", resetRound);

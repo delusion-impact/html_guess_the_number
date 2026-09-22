@@ -107,6 +107,38 @@ h1 {
   border-color: var(--accent);
 }
 
+.adjust {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 28rem;
+  justify-content: center;
+}
+
+.btn-adjust {
+  flex: 1;
+  max-width: 12rem;
+  padding: 1.2rem;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  background-color: var(--panel);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  line-height: 1;
+}
+
+.btn-adjust:hover {
+  background-color: #ddd;
+}
+
+.btn-adjust:active {
+  background-color: #ccc;
+}
+
 .btn {
   width: 100%;
   max-width: 28rem;
@@ -139,35 +171,23 @@ h1 {
   margin-top: 0.4rem;
 }
 
-.secret {
-  width: 100%;
-  max-width: 12rem;
-  padding: 1.2rem 0;
-  font-size: 4rem;
-  font-weight: 700;
-  text-align: center;
-  color: var(--ink);
-  background: var(--panel);
-  border: 3px solid #555;
-  border-radius: 1.2rem;
-}
-
-body.is-won .secret {
-  border-color: #fff;
-}
-
 .panel-stats {
   width: 100%;
   max-width: 28rem;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
+  font-weight: 500;
   text-align: center;
 }
 
 .panel-stats p {
   flex: 1;
+}
+
+.panel-stats span {
+  font-weight: 700;
 }
 
 @media (max-width: 480px) {
@@ -188,17 +208,18 @@ body.is-won .secret {
     padding: 1.4rem;
   }
 
+  .btn-adjust {
+    font-size: 1.8rem;
+    padding: 1rem;
+    max-width: 10rem;
+  }
+
   .btn {
     font-size: 1.6rem;
     padding: 1.2rem 1.6rem;
   }
 
-  .secret {
-    font-size: 3.2rem;
-    padding: 1rem 0;
-  }
-
   .panel-stats {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 }
